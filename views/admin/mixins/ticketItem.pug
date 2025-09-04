@@ -1,0 +1,8 @@
+mixin TicketItem(avatar, name, message, time)
+  div(class="flex items-center gap-4 py-4 border-b border-[#dde0e3] cursor-pointer last:border-b-0")
+    div(class="avatar")
+      img.w-12.h-12.rounded-full.object-cover(src=avatar alt=`${name} avatar`)
+    div(class="content")
+      h4(class="font-bold text-[--color-btn] text-[1rem] hover:text-[#066ac9] transition-all duration-500") #{name}
+      p(class="font-[400] text-[--color-link] text-[0.9rem]") #{message}
+      span(class="font-[400] text-[--color-link] text-[0.9rem]") #{time}

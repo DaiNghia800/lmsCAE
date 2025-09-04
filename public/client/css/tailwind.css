@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+    --color-link: #747579;
+    --color-btn: #24292d;
+    --color-white: #fff;
+    --bs-success-rgb: rgb(12, 188, 135);
+    --bs-blue-rgb: rgb(29, 59, 83);
+    --bs-light-rgb: rgb(245, 247, 249);
+    --bs-body-bg-rgb: rgb(255, 255, 255);
+    --font-roboto: "Roboto", sans-serif;
+    --font-heebo: "Heebo", sans-serif;
+    --box-shadow-pro: 0px 0px 40px rgba(29, 58, 83, .15);
+}
+body {
+    font-family: "Roboto", sans-serif;
+}
+.shadow-pro {
+    box-shadow: var(--box-shadow-pro);
+}
+.fill-success {
+    fill: #0cbc87!important;
+}
+.fill-warning {
+    fill: #f7c32e !important;
+}
+.fill-info {
+    fill: #17a2b8 !important;
+}
+.fill-orange {
+    fill: #fd7e14 !important;
+}
+.fill-danger {
+    fill: #d6293e !important;
+}
+.fill-secondary {
+    fill: #9a9ea4 !important;
+}
+.fill-purple {
+    fill: #6f42c1 !important;
+}
+.container {
+    margin: 0 auto;
+}
+
+@keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+  
+
+header.navbar-sticky {
+    background-color: var(--color-white);
+    width: 100%;
+    border-bottom: 1px solid #dde0e3;
+    animation: fade-in-down 1s ease-out;
+}
+
+.bg-grad {
+    background: linear-gradient(360deg, #f28e26, #fd644f);
+}
+.nav-menu::after {
+  content: "";
+  transform: rotate(40deg);
+  right: 5px;
+  background: #ddd;
+  border-radius: 1px;
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 7px;
+  margin: auto 12px;
+  transition: transform 0.3s cubic-bezier(0.8, 0.2, 0.5, 0.1), background 0.2s ease-in-out;
+  top: 0;
+  bottom: 0;
+} 
+.nav-menu::before {
+  content: "";
+  transform: rotate(-40deg);
+  right: 0;
+  background: #ddd;
+  border-radius: 1px;
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 7px;
+  margin: auto 12px;
+  transition: transform 0.3s cubic-bezier(0.8, 0.2, 0.5, 0.1), background 0.2s ease-in-out;
+  top: 0;
+  bottom: 0;
+} 
+.nav-menu {
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+.nav-menu.active {
+    background: rgba(6, 106, 201, 0.1);
+    color: #066ac9;
+    border-radius: .325rem;
+}
+.nav-menu.active::before {
+  transform: rotate(40deg);
+    background: #066ac9;
+}
+.nav-menu.active::after {
+    transform: rotate(-40deg);
+    background: #066ac9;
+}
+.nav-menu-item {
+    display: none;
+}
+.nav-menu-item.active {
+    display: block;
+}
+

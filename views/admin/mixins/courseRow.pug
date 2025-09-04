@@ -1,0 +1,21 @@
+mixin courseRow(img, courseName, instructor, date, typeText, typeColor, price, statusText, statusColor, action)
+  tr(class="border-b")
+    td(class="flex items-center gap-3 px-4 py-3")
+      img(src=img alt=courseName class="w-10 h-10 rounded-md")
+      span(class="font-semibold") #{courseName}
+    td(class="px-4 py-3")
+      span #{instructor}
+    td(class="px-4 py-3")
+      span #{date}
+    td(class="px-4 py-3")
+      +badge(typeText, typeColor)
+    td(class="px-4 py-3")
+      span $#{price}
+    td(class="px-4 py-3")
+      +badge(statusText, statusColor)
+    td(class="px-4 py-3")
+      if action === 'approve'
+        button(class="px-3 py-1 bg-green-100 text-green-600 font-semibold rounded") Approve
+        button(class="px-3 py-1 bg-gray-100 text-gray-600 rounded") Reject
+      else if action === 'edit'
+        button(class="px-3 py-1 bg-black text-white rounded") Edit

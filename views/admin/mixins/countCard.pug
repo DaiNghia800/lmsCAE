@@ -1,0 +1,4 @@
+mixin CountCard(title, value, color)
+  div(class=`w-[calc(100%/3)] text-center px-14 py-5 rounded-xl border border-[${color}] bg-[${color}]/10`)
+    h6(class="text-[1rem] font-[600]")= title
+    h2(class=`text-[3rem] font-[700] text-[${color}]`)= value

@@ -1,0 +1,9 @@
+mixin StatCard(number, label, bgColor, iconPath, viewBox)
+  div(class=`bg-[${bgColor}] px-4 py-7 h-full rounded w-[calc(100%/2-1rem)] bg-opacity-20`)
+    .flex.justify-between.items-center
+      div
+        span(class="block font-bold text-2xl text-[2rem] leading-10") #{number}
+        span(class="block text-sm font-light text-[0.8rem]") #{label}
+      div(class=`w-14 h-14 flex items-center justify-center rounded-full bg-[${bgColor}] text-white`)
+        svg(xmlns="http://www.w3.org/2000/svg" viewBox=viewBox class="w-6 h-6 text-center")
+          path(fill="currentColor" d=iconPath)

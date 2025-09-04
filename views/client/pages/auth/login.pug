@@ -1,0 +1,66 @@
+extends ../../layouts/default-2.pug
+include ../../mixins/box-img-auth.pug
+include ../../mixins/input-auth.pug
+include ../../mixins/button-submit.pug
+include ../../mixins/box-title-auth.pug
+block main 
+    include ../../partials/flashNotify.pug
+    section(class="")
+        div(class="flex items-center")
+            div(class="w-1/2 bg-[rgba(6,106,201)] bg-opacity-10  h-screen")
+                +box-img-auth(
+                    "Welcome to our largest community",
+                    "Let's learn something new today!",
+                    "/client/images/auth-bg.svg"
+                )
+            //- div(class="w-1/2 text-center")
+            //-     h1(class="text-[1.5rem] font-[700] text-[--color-btn]") Forgot Password?
+            //-     h5(class="text-[1.5rem] font-[700] text-[--color-btn]") To receive a new password, enter your email address below. 
+            div(class="w-1/2 flex items-center justify-center h-screen")
+                div(class="mx-14")
+                    <span class="text-[3rem]">👋</span>
+                    h1(class="text-[2.5rem] font-[700] text-[--color-btn]") Login into Eduport!
+                    h5(class="text-[1.2rem] font-[500] text-[--color-btn] ") Nice to see you! Please log in with your account. 
+                    form(
+                        class="mt-4"
+                        action="/auth/login"
+                        method="POST"
+                    )
+                        input(type="hidden" name="_csrf" value=csrfToken)
+                        +input-auth(
+                            "Email adress*",
+                            "email",
+                            "email",
+                            "email",
+                            "Email"
+                        )
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" fill="#747579" role="img" focusable="false"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"></path></svg>
+                        +input-auth(
+                            "Password *",
+                            "password",
+                            "password",
+                            "password",
+                            "Password"
+                        )
+                            <svg width="1em" height="1em" focusable="false" data-prefix="fas" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="#747579" d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"></path></svg>
+                        div(class="flex justify-between items-center")
+                            div(class="form-check flex justify-between items-center gap-2")
+                                input(type="checkbox", name="rememberMe" id="rememberMe" class="w-4 h-4")
+                                label(for="rememberMe" class="text-[0.9rem] font-[400] text-[#747579]") Remember me
+                            div(class="")
+                                a(href="/auth/forgot-password", target="", class="text-[0.9rem] font-[400] text-[#747579] hover:text-blue-600") Forgot Password? 
+                        +button-submit(
+                            "Login"
+                        )
+                    div(class="")
+                        div(class="relative my-2 py-2")
+                            hr(class="my-2 text-[#9a9ea4]")
+                            p(class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-6 text-[#9a9ea4] text-[0.8rem] font-[400]") Or
+                    include ../../partials/social-login.pug
+                    +box-title-auth(
+                        "Don't have an account?",
+                        "/auth/register",
+                        "Register here"
+                    )
+
+                    

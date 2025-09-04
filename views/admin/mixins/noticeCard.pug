@@ -1,0 +1,11 @@
+mixin NoticeItem(iconPath, iconColor, bgColor, title, desc, time, viewport)
+  div(class="flex items-start gap-4 py-4 border-b border-[#dde0e3] cursor-pointer")
+    // Avatar box
+    div(class=`avatar p-5 bg-[${bgColor}]/10 rounded flex items-center justify-center`)
+      svg(class=`${viewport || ""} w-5 h-5` aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512")
+        path(fill=`${iconColor}` d=iconPath)
+    // Content
+    div(class="content")
+      h4(class="font-bold text-[--color-btn] text-[1rem] hover:text-[#066ac9] transition-all duration-500")= title
+      p(class="font-[400] text-[--color-link] text-[0.9rem]")= desc
+      span(class="font-[400] text-[--color-link] text-[0.9rem]")= time

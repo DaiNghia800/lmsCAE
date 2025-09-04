@@ -1,0 +1,108 @@
+extends ../../layouts/default.pug
+include ../../mixins/countCard.pug
+include ../../mixins/badgeCard.pug
+include ../../mixins/courseRow.pug
+include ../../mixins/pageBtn.pug
+
+block main
+    div(class="py-4 px-6 my-4 shadow-custom border-[1px] border-[#dde0e3] rounded-lg")
+        h1(class="text-[--color-btn] font-[700] text-[2rem]") Class 
+        div(class="group flex items-center justify-between gap-6 mt-6")
+            +CountCard("Total Course", "1200", "#066AC9")    
+            +CountCard("Activated Courses", "969", "#0cbc87")    
+            +CountCard("Pending Courses", "200", "#F7C32E")    
+        div(class="mt-4")
+            div(class="p-4 bg-white rounded-xl shadow-custom")
+                div(class="card-header bg-gray-100 border-b px-4 py-3 rounded-xl")
+                    div(class="flex flex-col md:flex-row md:items-center md:justify-between gap-4")
+                        form(class="relative w-full md:w-2/3")
+                            input(
+                                type="search"
+                                placeholder="Search"
+                                class="w-full rounded border border-gray-300 bg-white px-3 py-2 pr-10 text-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:outline-none"
+                            )
+                            button(
+                                type="submit"
+                                class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-blue-600"
+                            )
+                                svg(class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512")
+                                path(d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5...")
+                        form(class="w-full md:w-1/3")
+                            select(
+                                id="sort"
+                                class="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:outline-none"
+                            )
+                                option(value="" class="text-gray-300" selected disabled) Sort by
+                                option(value="accepted") Accepted
+                                option(value="newest") Newest
+                                option(value="oldest") Oldest
+                                option(value="rejected") Rejected
+
+                table(class="w-full text-left border-collapse mt-4")
+                    thead
+                        tr(class="bg-[--color-btn] text-white text-sm font-semibold rounded-xl")
+                            th(class="px-4 py-3 rounded-tl rounded-bl") Course Name
+                            th(class="px-4 py-3") Instructor
+                            th(class="px-4 py-3") Added Date
+                            th(class="px-4 py-3") Type
+                            th(class="px-4 py-3") Price
+                            th(class="px-4 py-3") Status
+                            th(class="px-4 py-3 rounded-tr rounded-br") Action
+                    tbody(class="text-sm")
+                        +courseRow(
+                            "https://themes.stackbros.in/eduport_r/assets/08-DgNLqCM_.jpg",
+                            "Build Responsive Websites with HTML",
+                            "Dennis Barrett",
+                            "21 Aug 2020",
+                            "Beginner",
+                            "#066AC9",
+                            268,
+                            "Live",
+                            "#0CBC87",
+                            "edit"
+                        )
+                        +courseRow(
+                            "https://themes.stackbros.in/eduport_r/assets/08-DgNLqCM_.jpg",
+                            "Build Websites with CSS",
+                            "Joan Wallace",
+                            "02 April 2020",
+                            "All level",
+                            "#fd7e14",
+                            370,
+                            "Live",
+                            "#0CBC87",
+                            "edit"
+                        )
+                        +courseRow(
+                            "https://themes.stackbros.in/eduport_r/assets/08-DgNLqCM_.jpg",
+                            "Building Scalable APIs with GraphQL",
+                            "Lori Stevens",
+                            "28 Oct 2021",
+                            "Beginner",
+                            "#066AC9",
+                            350,
+                            "Live",
+                            "#0CBC87",
+                            "edit"
+                        )
+                        +courseRow(
+                            "https://themes.stackbros.in/eduport_r/assets/08-DgNLqCM_.jpg",
+                            "Bootstrap 5 From Scratch",
+                            "Billy Vasquez",
+                            "16 Oct 2021",
+                            "Intermediate",
+                            "#6F42C1",
+                            256,
+                            "Live",
+                            "#0CBC87",
+                            "edit"
+                        )
+            
+                div(class="flex items-center justify-between mt-4 text-sm text-gray-600")
+                    span Showing 1 to 8 of 20 entries
+                    div(class="flex gap-2")
+                        +pageBtn('<', false)
+                        +pageBtn('1', false)
+                        +pageBtn('2', true)
+                        +pageBtn('3', false)
+                        +pageBtn('>', false)

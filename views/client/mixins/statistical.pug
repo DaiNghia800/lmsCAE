@@ -1,0 +1,10 @@
+mixin Statistical(svg , numbers, subNumber, info)
+    div(class="w-1/2 flex items-center justify-center gap-4")
+        div(class="icon flex items-center justify-center w-[3.5rem] h-[3.5rem] rounded-[50%] shadow-pro")!= svg
+        div(class="content")
+            div(class="number text-[1.5rem] font-bold text-left")
+                span= numbers
+                if(subNumber!='null')
+                    span=subNumber
+            div(class="sub_number text-[--color-link] text-[1rem] font-[400]")= info
+                

@@ -1,0 +1,15 @@
+mixin card(title, viewAllUrl, isFullHeight, extraCount, extraUrl)
+  div(class=`shadow-custom rounded-xl border ${isFullHeight ? "h-full" : ""}`)
+    div(class="card-header flex justify-between items-center border-b-2 border-[#dde0e3] p-6")
+      h3(class="text-[1.4rem] font-bold")= title
+      if viewAllUrl
+        a(href=viewAllUrl class="text-blue-600 text-base font-bold text-[0.8rem]") View all
+    div(class=`card-body p-5 ${isFullHeight ? "max-h-[21.5rem] overflow-y-auto" : ""}`)
+      block
+    if isFullHeight && extraCount
+      div(class="border-[1px] border-[#0cbc87] p-4 bg-[#0cbc87]/10 flex justify-between items-center rounded-xl m-5")
+        div
+          p(class="font-[500] text-[0.9rem] text-[#0cbc87]") #{extraCount} more notices listed
+        if extraUrl
+          div
+            a(class="link p-3 bg-[#0cbc871a] rounded font-[500] text-[0.9rem] text-[#0cbc87]" href=extraUrl target="blank") View

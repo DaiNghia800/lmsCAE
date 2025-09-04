@@ -1,0 +1,23 @@
+mixin input-auth(titleLabel, nameInput, idInput, typeInput, placeholderInput, valueEmail)
+  label(for=idInput class="text-[1rem] font-[500] text-[#747579]")= titleLabel
+  div(class="flex items-center mt-2 bg-[rgb(245,247,249)] rounded-sm mb-5")
+    span(class="bg-light rounded-xl border-0 pl-6 pr-3")
+      block
+    if valueEmail
+      input(
+        type=typeInput,
+        name=nameInput,
+        id=idInput,
+        placeholder=placeholderInput,
+        value=valueEmail,
+        readonly
+        class="focus:border-none focus-visible:outline-none px-4 py-4 w-full bg-transparent"
+      )
+    else
+      input(
+        type=typeInput,
+        name=nameInput,
+        id=idInput,
+        placeholder=placeholderInput,
+        class="focus:border-none focus-visible:outline-none px-4 py-4 w-full bg-transparent"
+      )

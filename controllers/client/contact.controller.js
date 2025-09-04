@@ -1,0 +1,5 @@
+module.exports.index = (req, res) => {
+    res.render("client/pages/contact/index", {
+        pageTitle: "Contact page"
+    });
+};

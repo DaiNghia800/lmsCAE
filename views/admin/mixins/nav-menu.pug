@@ -1,0 +1,10 @@
+mixin navMenu(icon, title, items)
+  a(class="flex relative items-center gap-2 text-[1rem] font-[500] nav-menu cursor-pointer leading-10 px-2 py-1")
+    != icon
+    | #{title}
+  if items.length
+    div(class="nav-menu-item")
+      ul(class="mt-2")
+        each item in items
+          li(class="nav-item mb-[0.6rem] pl-8")
+            a(href=item.href class="text-[1rem] font-[500]") #{item.text}
