@@ -1,0 +1,10 @@
+mixin tableHeader(headers)
+  thead
+    tr(class="bg-[--color-btn] text-white text-sm font-semibold")
+      each header, i in headers
+        if i === 0
+          th(class="px-4 py-3 rounded-tl rounded-bl") #{header}
+        else if i === headers.length - 1
+          th(class="px-4 py-3 rounded-tr rounded-br") #{header}
+        else
+          th(class="px-4 py-3") #{header}

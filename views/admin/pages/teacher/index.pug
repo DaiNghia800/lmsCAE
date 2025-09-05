@@ -1,7 +1,10 @@
 extends ../../layouts/default.pug
-include ../../mixins/userCard.pug
+include ../../mixins/userCardTwo.pug
 include ../../mixins/instructorCard.pug
 include ../../mixins/pageBtn.pug
+include ../../mixins/tableHeader.pug
+include ../../mixins/instructorRowTwo.pug
+include ../../mixins/infoCard.pug
 
 block main
     div(class="py-4 px-6 my-4 shadow-custom border-[1px] border-[#dde0e3] rounded-lg")
@@ -28,135 +31,104 @@ block main
                         a(class="p-3 bg-[#eff1f2] block rounded" href="#" target="blank")
                             <svg class="svg-inline--fa fa-list-ul fa-fw w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="list-ul" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="text-[--color-btn]" fill="currentColor" d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"></path></svg>
 
-        div(class="flex flex-wrap gap-4 mt-4 pt-4 border-t")
-            div(class="w-[calc(100%/2-0.5rem)]")
-                +userCard(
-                    "Lori Stevens", 
-                    "Web Designer", 
-                    "https://i.pravatar.cc/150?img=6", 
-                    "student",
-                    [
-                        { label: "Total Students", value: "5354", bg: "bg-orange-100", text: "text-orange-500", icon: "fa-solid fa-user-graduate" },
-                        { label: "Total Courses", value: "15", bg: "bg-purple-100", text: "text-purple-500", icon: "fa-solid fa-book" }
-                    ],
-                    { rating: 4 },
-                    null
-                    )
-
-
-            div(class="w-[calc(100%/2-0.5rem)]")
-                +userCard(
-                    "Billy Vasquez",
-                    "Delhi",
-                    "https://themes.stackbros.in/eduport_r/assets/03-gME39Lw5.jpg",
-                    "$1256",
-                    "16",
-                    60,
-                    "15 Jul 2021"
-                )
-            div(class="w-[calc(100%/2-0.5rem)]")
-                +userCard(
-                    "Carolyn Ortiz",
-                    "Mumbai",
-                    "https://i.pravatar.cc/150?img=32",
-                    "$9256",
-                    "38",
-                    74,
-                    "29 Aug 2021"
-                )
-            div(class="w-[calc(100%/2-0.5rem)]")
-                +userCard(
-                    "Billy Vasquez",
-                    "Delhi",
-                    "https://themes.stackbros.in/eduport_r/assets/03-gME39Lw5.jpg",
-                    "$1256",
-                    "16",
-                    60,
-                    "15 Jul 2021"
-                )
-            div(class="w-[calc(100%/2-0.5rem)]")
-                +userCard(
-                    "Carolyn Ortiz",
-                    "Mumbai",
-                    "https://i.pravatar.cc/150?img=32",
-                    "$9256",
-                    "38",
-                    74,
-                    "29 Aug 2021"
-                )
-            div(class="w-[calc(100%/2-0.5rem)]")
-                +userCard(
-                    "Billy Vasquez",
-                    "Delhi",
-                    "https://themes.stackbros.in/eduport_r/assets/03-gME39Lw5.jpg",
-                    "$1256",
-                    "16",
-                    60,
-                    "15 Jul 2021"
-                )
-        //- div(class="w-full")
+        //- div(class="flex flex-wrap gap-4 mt-4 pt-4 border-t")
+        //-     div(class="w-[calc(100%/2-0.5rem)]")
+        //-         +userCardTwo(
+        //-             "Carolyn Ortiz",
+        //-             "Web Designer",
+        //-             "https://i.pravatar.cc/150?img=32",
+        //-             "9256",
+        //-             "38",
+        //-             "4.5"
+        //-         )
+        //-     div(class="w-[calc(100%/2-0.5rem)]")
+        //-         +userCardTwo(
+        //-             "Billy Vasquez",
+        //-             "Web Developer",
+        //-             "https://themes.stackbros.in/eduport_r/assets/03-gME39Lw5.jpg",
+        //-             "1256",
+        //-             "16",
+        //-             "4"
+        //-         )
+        //-     div(class="w-[calc(100%/2-0.5rem)]")
+        //-         +userCardTwo(
+        //-             "Carolyn Ortiz",
+        //-             "Developer and Instructor",
+        //-             "https://i.pravatar.cc/150?img=32",
+        //-             "9256",
+        //-             "38",
+        //-             "3"
+        //-         )
+        //-     div(class="w-[calc(100%/2-0.5rem)]")
+        //-         +userCardTwo(
+        //-             "Billy Vasquez",
+        //-             "Full Stack Web Developer",
+        //-             "https://themes.stackbros.in/eduport_r/assets/03-gME39Lw5.jpg",
+        //-             "1256",
+        //-             "16",
+        //-             "5"
+        //-         )
+        //-     div(class="w-[calc(100%/2-0.5rem)]")
+        //-         +userCardTwo(
+        //-             "Carolyn Ortiz",
+        //-             "Engineering Architect",
+        //-             "https://i.pravatar.cc/150?img=32",
+        //-             "9256",
+        //-             "38",
+        //-             "1"
+        //-         )
+            
+        div(class="w-full")
             //- Instructor Table
             table(class="w-full text-left border-collapse mt-4")
-                thead
-                    tr(class="bg-[--color-btn] text-white text-sm font-semibold")
-                        th(class="px-4 py-3 rounded-tl rounded-bl") Instructor name
-                        th(class="px-4 py-3") Join date
-                        th(class="px-4 py-3") Progress
-                        th(class="px-4 py-3") Courses
-                        th(class="px-4 py-3") Payments
-                        th(class="px-4 py-3 rounded-tr rounded-br") Action
+                +tableHeader([
+                    "Instructor name",
+                    "Detail",
+                    "Courses",
+                    "Total students",
+                    "Action"
+                ])
+
                 tbody(class="text-sm")
-                    +instructorRow(
+                    +instructorRowTwo(
                         "https://i.pravatar.cc/40?img=1",
                         "Carolyn Ortiz",
-                        "Mumbai",
-                        "29 Aug 2021",
-                        85,
+                        "Engineering Architect",
                         21,
                         6205
                     )
-                    +instructorRow(
+                    +instructorRowTwo(
                         "https://i.pravatar.cc/40?img=2",
                         "Billy Vasquez",
-                        "Delhi",
-                        "15 July 2021",
-                        60,
+                        "Engineering Architect",
                         16,
                         1256
                     )
-                    +instructorRow(
+                    +instructorRowTwo(
                         "https://i.pravatar.cc/40?img=3",
                         "Dennis Barrett",
-                        "New York",
-                        "22 June 2021",
-                        74,
+                        "Engineering Architect",
                         38,
                         9256
                     )
-                    +instructorRow(
+                    +instructorRowTwo(
                         "https://i.pravatar.cc/40?img=4",
                         "Lori Stevens",
-                        "California",
-                        "18 April 2021",
-                        45,
+                        "Engineering Architect",
                         7,
                         10688
                     )
-                    +instructorRow(
+                    +instructorRowTwo(
                         "https://i.pravatar.cc/40?img=5",
                         "Jacqueline Miller",
-                        "Chennai",
-                        "05 Aug 2021",
-                        90,
+                        "Engineering Architect",
                         5,
                         856
                     )
-                    +instructorRow(
+                    +instructorRowTwo(
                         "https://i.pravatar.cc/40?img=6",
                         "Samuel Bishop",
-                        "Canada",
-                        "18 Jan 2021",
-                        30,
+                        "Engineering Architect",
                         14,
                         3578
                     )
