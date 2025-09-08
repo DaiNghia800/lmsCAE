@@ -1,21 +1,28 @@
 mixin courseRow(img, courseName, instructor, date, typeText, typeColor, price, statusText, statusColor, action)
   tr(class="border-b")
     td(class="flex items-center gap-3 px-4 py-3")
-      img(src=img alt=courseName class="w-10 h-10 rounded-md")
+      img(src=img alt=courseName class="w-20 h-auto rounded-md")
       span(class="font-semibold") #{courseName}
-    td(class="px-4 py-3")
-      span #{instructor}
-    td(class="px-4 py-3")
-      span #{date}
-    td(class="px-4 py-3")
-      +badge(typeText, typeColor)
-    td(class="px-4 py-3")
-      span $#{price}
-    td(class="px-4 py-3")
-      +badge(statusText, statusColor)
+    if instructor !== "#"
+        td(class="px-4 py-3")
+          span #{instructor}
+    if date !== "#"      
+      td(class="px-4 py-3")
+        span #{date}
+    if typeText !== "#"
+      td(class="px-4 py-3")
+        +badge(typeText, typeColor)
+    if price !== "#"    
+      td(class="px-4 py-3")
+        span $#{price}
+    if statusText !== "#"    
+      td(class="px-4 py-3")
+        +badge(statusText, statusColor)
     td(class="px-4 py-3")
       if action === 'approve'
         button(class="px-3 py-1 bg-green-100 text-green-600 font-semibold rounded") Approve
         button(class="px-3 py-1 bg-gray-100 text-gray-600 rounded") Reject
       else if action === 'edit'
-        button(class="px-3 py-1 bg-black text-white rounded") Edit
+        button(class="px-3 py-2 bg-[--color-btn] text-white font-semibold rounded") Edit
+      else 
+        button(class="px-3 py-2 bg-[#17a2b81a] text-[#17a2b8] transition-all duration-500 font-semibold rounded hover:bg-[#17a2b8] hover:text-white") View

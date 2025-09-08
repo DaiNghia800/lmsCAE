@@ -1,0 +1,192 @@
+extends ../../layouts/default.pug
+include ../../mixins/infoCard.pug
+include ../../mixins/labelValue.pug
+include ../../mixins/tableHeader.pug
+include ../../mixins/courseRow.pug
+include ../../mixins/pageBtn.pug
+include ../../mixins/badgeCard.pug
+include ../../mixins/instructorRowThree.pug
+block main
+    div(class="py-4 px-6 my-4 shadow-custom border-[1px] border-[#dde0e3] rounded-lg")
+        h1(class="text-[--color-btn] font-[700] text-[2rem]") Teacher Detail 
+        
+        div(class="mt-5")
+            +infoCard("Personal Information")
+                div(class="p-4")
+                    div(class="w-20 h-20 border-white border-[0.2rem] shadow-custom rounded-full overflow-hidden")
+                        img(class="w-full h-full object-cover" alt="avartar" src="https://themes.stackbros.in/eduport_r/assets/07-kZVAQqKo.jpg")
+                    div(class="row")
+                        ul(class="flex flex-wrap mt-4 gap-4")
+                            li(class="w-[calc(100%/2-0.5rem)]")
+                                +LabelValue("Title", "Mr.John")
+                            li(class="w-[calc(100%/2-0.5rem)]")
+                                +LabelValue("Email ID", "example@gmail.com")
+                            li(class="w-[calc(100%/2-0.5rem)]")
+                                +LabelValue("Full Name", "Louis Ferguson")
+                            li(class="w-[calc(100%/2-0.5rem)]")
+                                +LabelValue("Location", "California")
+                            li(class="w-[calc(100%/2-0.5rem)]")
+                                +LabelValue("User Name", "Lousifer")
+                            li(class="w-[calc(100%/2-0.5rem)]")
+                                +LabelValue("Joining Date", "29 Aug 2019")
+                            li(class="w-[calc(100%/2-0.5rem)]")
+                                +LabelValue("Mobile Number", "+123 456 789 10")
+                        div(class="my-4")
+                            +LabelValue("Education", "Bachelor in Computer Graphics,Masters in Computer Graphics")
+                        div(class="")
+                            +LabelValue("Description", "As it so contrasted oh estimating instrument. Size like body someone had. Are conduct viewing boy minutes warrant the expense Tolerably behavior may admit daughters offending her ask own. Praise effect wishes change way and any wanted. Lively use looked latter regard had. Do he it part more last in")
+        div(class="mt-5 flex gap-4")
+            div(class="w-[calc(100%/2-0.5rem)]")
+                +infoCard("Active Students")
+                    <div style="display: flex; justify-content: space-between; align-items: center;" class="px-4 mt-4">
+                        <span style="font-size: 38px; font-weight: bold;">984</span>
+                        <span style="font-size: 18px; color: #16a34a;">0.20% ↑ vs last Week</span>
+                    </div>
+                    <canvas id="activeStudentsChart"></canvas>
+            div(class="w-[calc(100%/2-0.5rem)]")
+                +infoCard("New Enrollment")
+                    <div style="display: flex; justify-content: space-between; align-items: center;" class="px-4 mt-4">
+                        <span style="font-size: 38px; font-weight: bold;">984</span>
+                        <span style="font-size: 18px; color: #16a34a;">0.20% ↑ vs last Week</span>
+                    </div>
+                    <canvas id="activeStudentsChart2"></canvas>
+        div(class="mt-5")
+            +infoCard("Courses List")          
+                div(class="w-full p-4")
+                    table(class="w-full text-left border-collapse mt-4")
+                        +tableHeader([
+                            "Course Name",
+                            "Enrolled",
+                            "Status",
+                            "Action"
+                        ])
+
+                        tbody(class="text-sm")
+                            +courseRow(
+                            "https://themes.stackbros.in/eduport_r/assets/08-DgNLqCM_.jpg",
+                            "Build Responsive Websites with HTML",
+                            "#",
+                            "442",
+                            "#",
+                            "#",
+                            "#",
+                            "All level",
+                            "#fd7e14",
+                            "view"
+                        )
+                            +courseRow(
+                            "https://themes.stackbros.in/eduport_r/assets/10-BWMTToYr.jpg",
+                            "Build Responsive Websites with HTML",
+                            "#",
+                            "442",
+                            "#",
+                            "#",
+                            "#",
+                            "Live",
+                            "#0CBC87",
+                            "view"
+                        )
+                            +courseRow(
+                            "https://themes.stackbros.in/eduport_r/assets/02-CLuao9PX.jpg",
+                            "Build Responsive Websites with HTML",
+                            "#",
+                            "442",
+                            "#",
+                            "#",
+                            "#",
+                            "Live",
+                            "#0CBC87",
+                            "view"
+                        )
+                            +courseRow(
+                            "https://themes.stackbros.in/eduport_r/assets/11-CgX7qW4Y.jpg",
+                            "Build Responsive Websites with HTML",
+                            "#",
+                            "442",
+                            "#",
+                            "#",
+                            "#",
+                            "Live",
+                            "#0CBC87",
+                            "view"
+                        )
+                            +courseRow(
+                            "https://themes.stackbros.in/eduport_r/assets/09-wyx1hhTj.jpg",
+                            "Build Responsive Websites with HTML",
+                            "#",
+                            "442",
+                            "#",
+                            "#",
+                            "#",
+                            "Live",
+                            "#0CBC87",
+                            "view"
+                        )
+
+                        //- Pagination
+                    div(class="flex items-center justify-between mt-4 text-sm text-gray-600")
+                        span Showing 1 to 6 of 20 entries
+                        div(class="flex gap-2")
+                            +pageBtn('<', false)
+                            +pageBtn('1', false)
+                            +pageBtn('2', true)
+                            +pageBtn('3', false)
+                            +pageBtn('>', false)  
+        div(class="mt-5")
+            +infoCard("All Reviews") 
+                div(class="w-full p-4")
+                    table(class="w-full text-left border-collapse mt-4")
+                        +tableHeader([
+                            "Student Name",
+                            "Course Name",
+                            "Rating",
+                            "Action"
+                        ])
+
+                        tbody(class="text-sm")
+                            +instructorRowThree(
+                                "https://themes.stackbros.in/eduport_r/assets/09-wyx1hhTj.jpg",
+                                "Lori Stevens",
+                                "Engineering Architect",
+                                3.6,
+                                "view"
+                            )
+                            +instructorRowThree(
+                                "https://i.pravatar.cc/40?img=1",
+                                "Carolyn Ortiz",
+                                "Graphic Design Masterclass",
+                                5,
+                                "view"
+                            )
+                            +instructorRowThree(
+                                "https://themes.stackbros.in/eduport_r/assets/01-7N0KytgQ.jpg",
+                                "Dennis Barrett",
+                                "Deep Learning with React-Native",
+                                4,
+                                "view"
+                            )
+                            +instructorRowThree(
+                                "https://themes.stackbros.in/eduport_r/assets/03-gME39Lw5.jpg",
+                                "Billy Vasquez",
+                                "Graphic Design Masterclass",
+                                3,
+                                "view"
+                            )
+                            +instructorRowThree(
+                                "https://themes.stackbros.in/eduport_r/assets/05-D2nUib9C.jpg",
+                                "Jacqueline Miller",
+                                "Building Scalable APIs with GraphQL",
+                                5,
+                                "view"
+                            )
+
+                        //- Pagination
+                    div(class="flex items-center justify-between mt-4 text-sm text-gray-600")
+                        span Showing 1 to 6 of 20 entries
+                        div(class="flex gap-2")
+                            +pageBtn('<', false)
+                            +pageBtn('1', false)
+                            +pageBtn('2', true)
+                            +pageBtn('3', false)
+                            +pageBtn('>', false)  
+
